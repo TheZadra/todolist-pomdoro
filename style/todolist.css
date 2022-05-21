@@ -1,0 +1,170 @@
+.navbarToDo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+h4 {
+    display: flex;
+    font-size: 20px;
+}
+
+.fa-trash-alt:hover {
+    color: crimson;
+}
+
+.fa-check-circle:hover {
+    color: green;
+}
+
+
+p,
+.task {
+    display: flex;
+}
+
+.task {
+    margin-top: 5px;
+    overflow: hidden;
+    position: relative;
+    margin-left: 10px;
+}
+.far {
+    cursor: pointer;
+}
+
+
+.task .far,
+p,
+.fas {
+    font-size: 25px;
+    margin-left: 10px;
+    align-self: center;
+}
+
+.task::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(-90deg, rgba(165, 164, 187, 1) 0%, rgba(132, 132, 168, 1) 40%, rgba(95, 120, 126, 1) 100%);
+}
+
+.task p::before {
+    content: "";
+    width: 2px;
+    height: 40px;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: rgba(95, 120, 126, 1);
+    margin: 0 10px;
+}
+
+
+
+#tasksContainer {
+    box-sizing: border-box;
+    background: #717e93;
+    border: 3px solid #3030A0;
+    position: fixed;
+    top: 80px;
+    width: 90vw;
+    height: 75vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.counterList {
+    width: 80vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: justify;
+    line-height: 1;
+}
+
+.fa-times {
+    font-size: 30px;
+    margin: 5px 15px 0 0;
+    align-self: flex-end;
+}
+
+.fa-times:hover {
+    transform: rotate(90deg);
+    transition: 0.5s;
+    color: red;
+    cursor: pointer;
+}
+
+#inputSearch {
+    margin: 5px;
+    width: 40vw;
+    margin: 10px;
+}
+
+.done {
+    text-decoration: line-through;
+    color: green;
+}
+
+.counter {
+    font-size: 20px;
+}
+
+.fa-tasks {
+    font-size: 40px;
+}
+
+#showTasks {
+    position: fixed;
+    bottom: 20px;
+    right: 5%;
+    height: 75px;
+    width: 75px;
+    background-color: #3030A0;
+    border-radius: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: skyblue;
+}
+
+#showTasks:hover {
+    background: skyblue;
+    color: #3030A0;
+    cursor: pointer;
+}
+
+.tasks {
+    width: 100%;
+    height: 10000px;
+    background: rgba(0, 0, 0, 0.5);
+    overflow-y: scroll;
+}
+
+.lastAdded {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+.lastAdded span {
+    color: skyblue;
+    text-align: center;
+}
+
+.tasks h3 {
+    padding: 50px 0;
+    text-align: center;
+}
+
+
+#todolist h1 {
+    margin-top: 125px;
+    font-size: 40px;
+}

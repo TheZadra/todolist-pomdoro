@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Maven Pro', sans-serif;
+    color: #fff;
+    height: 100vh; 
+    overflow: hidden;
+    margin-bottom: 90px;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: center;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    width: 100%;
+}
+
+.navbar ul li {
+    margin: 0 1rem;
+    padding: 1rem;
+}
+
+
+.navbar ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #f4f4f4;
+}
+
+.navbar ul li a:hover {
+    color: skyblue;
+    cursor: pointer;
+ }
+ 
+ button {
+    margin: 20px 0;
+    width: 120px;
+    height: 50px;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    background-color: #3030A0;
+    color: skyblue;
+    transition: ease-out 0.4s;
+}
+
+button:hover {
+    cursor: pointer;
+    color: skyblue;
+    box-shadow: 6px 6px skyblue;
+}
+
+ input {
+    width: 80vw;
+    font-size: 25px;
+    background-color: #a5a4bb;
+    color: #fff;
+    border: 2px solid #717e93;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    transition: .3s;
+}
+
+input:focus {
+    border-color: #3030A0;
+    box-shadow: 0 0 8px 0 #3030A0;
+}
+
+input::placeholder {
+    color: whitesmoke;
+    opacity: .7;
+}
+input[type="number"] {
+    width: 60px;
+    text-align: center;
+}
+
+h1 {
+    padding-bottom: 20px;
+    font-size: 30px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+#pomodoro {
+    background: #333;
+}
+
+#todolist {
+    background: linear-gradient(90deg, rgba(165, 164, 187, 1) 0%, rgba(132, 132, 168, 1) 40%, rgba(95, 120, 126, 1) 100%);
+}
