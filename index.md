@@ -1,38 +1,177 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html lang="pl">
 
-You can use the [editor on GitHub](https://github.com/TheZadra/t[projekt.zip](https://github.com/TheZadra/todolist-pomdoro/files/8748414/projekt.zip)
-odolist-pomdoro/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon.png">
+  <script src="https://kit.fontawesome.com/6b9592b13a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/todolist.css">
+  <link rel="stylesheet" href="style/pomodoro.css">
+  <title>Time Manager</title>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+</head>
 
-### Markdown
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <ul>
+        <li href="#pomodoro">
+          <a href="#pomodoro">pomodoro</a>
+        </li>
+        <li href="#todolist">
+          <a href="#todolist">to do list</a>
+        </li>
+      </ul>
+    </nav>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+    <section id="pomodoro">
+      <h1>pomodoro timer</h1>
 
-```markdown
-Syntax highlighted code block
+      <div class="timers">
 
-# Header 1
-## Header 2
-### Header 3
+        <div class="set session choice" data-time="25">
+          <!-- sesja -->
+          <svg width="75" height="49" viewBox="0 0 75 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M62.5 42.875C65.9375 42.875 68.75 40.1188 68.75 36.75V6.125C68.75 2.75625 65.9375 0 62.5 0H12.5C9.0625 0 6.25 2.75625 6.25 6.125V36.75C6.25 40.1188 9.0625 42.875 12.5 42.875H0V49H75V42.875H62.5ZM12.5 6.125H62.5V36.75H12.5V6.125Z"
+              fill="white" />
+          </svg>
+          <span class="sessionLength">Sesja</span>
+        </div>
 
-- Bulleted
-- List
+        <div class="set break" data-time="5">
+          <!-- przerwa -->
+          <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M43.5556 0H0V27.2222C0 33.2383 4.87278 38.1111 10.8889 38.1111H27.2222C33.2383 38.1111 38.1111 33.2383 38.1111 27.2222V19.0556H43.5556C46.5772 19.0556 49 16.6056 49 13.6111V5.44444C49 2.42278 46.5772 0 43.5556 0ZM43.5556 13.6111H38.1111V5.44444H43.5556V13.6111ZM0 43.5556H43.5556V49H0V43.5556Z"
+              fill="white" />
+          </svg>
+          <span class="breakLength">Krótka przerwa</span>
+        </div>
 
-1. Numbered
-2. List
+        <div class="set longBreak" data-time="15">
+          <!-- długa przerwa -->
+          <svg width="34" height="49" viewBox="0 0 34 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M19.6154 9.11628C22.4923 9.11628 24.8462 7.06512 24.8462 4.55814C24.8462 2.05116 22.4923 0 19.6154 0C16.7385 0 14.3846 2.05116 14.3846 4.55814C14.3846 7.06512 16.7385 9.11628 19.6154 9.11628ZM9.93846 16.8651L2.61538 49H8.10769L12.8154 30.7674L18.3077 35.3256V49H23.5385V31.907L18.0462 27.3488L19.6154 20.5116C23.0154 23.9302 28.2462 26.2093 34 26.2093V21.6512C29.0308 21.6512 24.8462 19.3721 22.7538 16.1814L20.1385 12.5349C19.0923 11.1674 17.5231 10.2558 15.6923 10.2558C14.9077 10.2558 14.3846 10.4837 13.6 10.4837L0 15.4977V26.2093H5.23077V18.4605L9.93846 16.8651Z"
+              fill="white" />
+          </svg>
+          <span class="longBreakLength">Długa przerwa</span>
+        </div>
 
-**Bold** and _Italic_ and `Code` text
+      </div>
 
-[Link](url) and ![Image](src)
-```
+      <input class="timer" type="text"  value="25:00" disabled>
+      
+      <div class="buttons">
+        <button id="start">start</button>
+      </div>
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+      <div class="buttons-option">
+        <div class="settings">
+          <svg id="btn-settings" width="35" height="35" viewBox="0 0 48 49" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M42.3604 26.8887C42.453 26.1231 42.5147 25.3269 42.5147 24.5C42.5147 23.6731 42.453 22.8769 42.3296 22.1113L47.5446 18.0688C48.0074 17.7013 48.1309 17.0275 47.8531 16.5069L42.9159 8.02375C42.6073 7.4725 41.9593 7.28875 41.4038 7.4725L35.2631 9.9225C33.9671 8.9425 32.6093 8.14625 31.0973 7.53375L30.1716 1.04125C30.079 0.42875 29.5544 0 28.9373 0H19.0627C18.4456 0 17.9519 0.42875 17.8593 1.04125L16.9336 7.53375C15.4215 8.14625 14.0329 8.97312 12.7677 9.9225L6.62702 7.4725C6.07158 7.25813 5.42357 7.4725 5.11499 8.02375L0.177727 16.5069C-0.130852 17.0581 -0.00741981 17.7013 0.486306 18.0688L5.70129 22.1113C5.57785 22.8769 5.48528 23.7038 5.48528 24.5C5.48528 25.2962 5.547 26.1231 5.67043 26.8887L0.455447 30.9313C-0.00742054 31.2988 -0.130852 31.9725 0.146869 32.4931L5.08413 40.9763C5.39271 41.5275 6.04072 41.7113 6.59616 41.5275L12.7369 39.0775C14.0329 40.0575 15.3907 40.8537 16.9027 41.4662L17.8284 47.9587C17.9519 48.5712 18.4456 49 19.0627 49H28.9373C29.5544 49 30.079 48.5712 30.1407 47.9587L31.0665 41.4662C32.5785 40.8537 33.9671 40.0269 35.2323 39.0775L41.373 41.5275C41.9284 41.7419 42.5764 41.5275 42.885 40.9763L47.8223 32.4931C48.1309 31.9419 48.0074 31.2988 47.5137 30.9313L42.3604 26.8887V26.8887ZM24 33.6875C18.9085 33.6875 14.7426 29.5531 14.7426 24.5C14.7426 19.4469 18.9085 15.3125 24 15.3125C29.0915 15.3125 33.2574 19.4469 33.2574 24.5C33.2574 29.5531 29.0915 33.6875 24 33.6875Z"
+              fill="white" />
+          </svg>
+        </div>
 
-### Jekyll Themes
+        <div class="buttons-mute">
+          <svg class="volume btn-mute" width="25" height="35" viewBox="0 0 36 49" fill="white"
+            xmlns="http://www.w3.org/2000/svg">
+            <path class="volume"
+              d="M36 24.5C36 19.0794 33.28 14.4244 29.3333 12.1581V36.8113C33.28 34.5756 36 29.9206 36 24.5ZM0 15.3125V33.6875H10.6667L24 49V0L10.6667 15.3125H0Z"
+              fill="white" />
+          </svg>
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/TheZadra/todolist-pomdoro/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+          <svg class="volume btn-unmute" width="25" height="35" viewBox="0 0 23 49" fill="white"
+            xmlns="http://www.w3.org/2000/svg">
+            <path class="volume" d="M0 15.3125V33.6875H10.2222L23 49V0L10.2222 15.3125H0Z" fill="white" />
+          </svg>
+        </div>
+      </div>
 
-### Support or Contact
+      <div id="settingsContainer">
+        <i class="fas fa-times"></i>
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+        <div class="flex-item">
+          <label for="sessionSettings">Sesja:</label><input type="number" id="sessionSettings" min="1" value="25">
+        </div>
+
+        <div class="flex-item">
+          <label for="breakSettings">Krótka przerwa:</label><input type="number" id="breakSettings" min="1" value="5">
+        </div>
+
+        <div class="flex-item">
+          <label for="longBreakSettings">Długa przerwa:</label><input type="number" id="longBreakSettings" min="1" value="15">
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="todolist">
+      <div class="navbarToDo">
+        <h1>to do-list</h1>
+        <input type="text" name="task" id="task" placeholder="DODAJ ZADANIE...">
+        <button>dodaj</button>
+      </div>
+      <div class="lastAdded">
+        Ostatnio dodane zadanie: <span class="lastTask"></span>
+      </div>
+      <div id="showTasks"><i class="fa fa-tasks" aria-hidden="true"></i></div>
+
+
+      <div id="tasksContainer">
+        <i class="fas fa-times"></i>
+        <div class="counterList">
+          <h4>
+            <!-- Obecna liczba zadań:  -->
+            <svg width="50" height="39" viewBox="0 0 50 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M45.4545 0H4.54545C2.04545 0 0 1.95 0 4.33333V34.6667C0 37.05 2.04545 39 4.54545 39H45.4545C47.9545 39 50 37.05 50 34.6667V4.33333C50 1.95 47.9545 0 45.4545 0ZM25 17.3333H4.54545V13H25V17.3333ZM25 8.66667H4.54545V4.33333H25V8.66667Z"
+                fill="#3030A0" />
+            </svg>
+            <p class="counter addTasks">0</p>
+          </h4>
+
+          <h4>
+            <!-- Wykonanych zadań: -->
+            <svg width="50" height="39" viewBox="0 0 50 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.9091 30.8507L3.97727 18.6269L0 22.7015L15.9091 39L50 4.07463L46.0227 0L15.9091 30.8507Z"
+                fill="#58C44E" />
+            </svg>
+            <p class="counter doneTasks">0</p>
+          </h4>
+          <h4>
+            <!-- Usuniętych zadań: -->
+            <svg width="50" height="39" viewBox="0 0 50 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M25 0C11.175 0 0 8.7165 0 19.5C0 30.2835 11.175 39 25 39C38.825 39 50 30.2835 50 19.5C50 8.7165 38.825 0 25 0ZM37.5 26.5005L33.975 29.25L25 22.2495L16.025 29.25L12.5 26.5005L21.475 19.5L12.5 12.4995L16.025 9.75L25 16.7505L33.975 9.75L37.5 12.4995L28.525 19.5L37.5 26.5005Z"
+                fill="#FF0000" />
+            </svg>
+
+            <p class="counter deleteTasks">0</p>
+          </h4>
+
+        </div>
+        <input type="text" name="search" id="inputSearch" placeholder="WYSZUKAJ..." disabled>
+
+        <div class="tasks">
+          <h3>Tu będą pojawiać się dodane przez ciebie zadania...</h3>
+          </span>
+        </div>
+      </div>
+
+    </section>
+
+    <script src="script/app.js"></script>
+    <script src="script/app2.js"></script>
+  </div>
+</body>
+
+</html>
