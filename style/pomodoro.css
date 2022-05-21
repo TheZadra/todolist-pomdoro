@@ -1,0 +1,119 @@
+.timers {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    text-align: justify;
+    font-size: 15px;
+}
+
+
+
+#pomodoro h1 {
+    font-size: 35px;
+    margin: 30px 0;
+    padding: 0;
+}
+
+ .set {
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-between;
+    justify-content: center;
+} 
+
+.set:hover {
+    background:  rgb(75, 154, 185);
+    box-shadow: 0 0 20px 0 #3030A0;
+    cursor: pointer;
+    border-radius: 120px;
+}
+/* wybór czasu do showTimera */
+.choice {
+    background:  rgb(75, 154, 185);
+    box-shadow: 0 0 20px 0 #3030A0;
+    border-radius: 120px;
+}
+
+.timer {
+    font-size: 50px;
+    margin: 10px;
+    background: none;
+    border: none;
+    text-align: center;
+}
+
+.buttons button {
+    margin: 0 5px;
+}
+
+/* DZWIĘK POMODORO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+.btn-unmute {
+    display: none;
+}
+
+.buttons-mute:hover,
+.settings:hover {
+    cursor: pointer;
+}
+
+.volume path:hover,
+.settings path:hover {
+    fill: skyblue;
+}
+
+.buttons-option {
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+#settingsContainer {
+    box-sizing: border-box;
+    background: #717e93;
+    border: 3px solid #3030A0;
+    position: fixed;
+    top: 15%;
+    left: 5%;
+    right: 5%;
+    width: 90vw;
+    height: 40%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.flex-item {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.flex-item label {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+
+@media only screen and (min-width: 600px) {
+    .timer {
+        font-size: 100px;
+    }
+    .timers {
+        font-size: 15px;
+    }
+    #pomodoro h1 {
+        font-size: 40px;
+    }
+    #settingsContainer {
+        top: 34%;
+        left: 35%;  
+        width: 30vw;
+        height: 36%;
+    }
+}
+
+
+
+
